@@ -19,7 +19,7 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping("/{userId}")
-	public JsonResult<User> getUser(@PathVariable Integer userId) {
+	public JsonResult<User> getUser(@PathVariable Integer userId) throws Exception {
 		log.info("get user, userId="+userId);
 		User u = userService.getUser(userId);
 		return JsonResult.ok(u);
