@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: feign
+    
+server:
+  port: 3001
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka,http://eureka2:2002/eureka
+      
+#hystrix默认不启用
+feigh:
+  hystrix:
+    enable: true
+    
+#hystrix超时时间默认一秒，可以不配置
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 500
