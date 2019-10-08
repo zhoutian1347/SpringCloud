@@ -45,4 +45,4 @@ eureka:
     hostname: eureka2
   client:
     service-url:
-      defaultZone: http://eureka1.2001/eureka
+      defaultZone: http://eureka1:2001/eureka
