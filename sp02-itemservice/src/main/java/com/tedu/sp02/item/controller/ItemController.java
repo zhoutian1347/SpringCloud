@@ -32,7 +32,7 @@ public class ItemController {
 		
 		//设置随机延迟
 		long time = new Random().nextInt(5000);
-		if (Math.random() < 0.6) {
+		if(Math.random() > 0.6) {
 			log.info("item-service："+port+" - 暂停 - " + time);
 			Thread.sleep(time);
 		}

@@ -2,10 +2,41 @@ spring:
   application:
     name: order-service
     
-server:
-  port: 8201
+#server:
+#  port: 8201
   
 eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka,http://eureka2:2002/eureka
+
+feign:
+  hystrix:
+    enabled: true
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+       
+#hystrix超时时间要比ribbon长一点，ribbon默认重试0次，尝试两台服务器，超时时长2s，所以hystrix超时要大于2s
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+
+---
+spring:
+  profiles: order1
+server:
+  port: 8201
+  
+---
+spring:
+  profiles: order2
+server:
+  port: 8202
