@@ -11,15 +11,22 @@ eureka:
       defaultZone: http://eureka1:2001/eureka,http://eureka2:2002/eureka
       
 #hystrix默认不启用
-feigh:
+feign:
   hystrix:
-    enable: true
+    enabled: true
+
     
 #hystrix超时时间默认一秒，可以不配置
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 500
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

@@ -12,7 +12,7 @@ import com.tedu.sp01.pojo.Item;
 import com.tedu.sp09.serviceImpl.ItemFeignServiceFB;
 import com.tedu.web.util.JsonResult;
 
-@FeignClient(name = "item-service",fallback = ItemFeignServiceFB.class)
+@FeignClient(name="item-service", fallback = ItemFeignServiceFB.class)
 public interface ItemFeignService {
 
 	/**

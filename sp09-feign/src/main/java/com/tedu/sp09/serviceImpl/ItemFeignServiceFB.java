@@ -14,6 +14,7 @@ public class ItemFeignServiceFB implements ItemFeignService {
 
 	@Override
 	public JsonResult<List<Item>> getItems(String orderId) {
+		System.out.println("Item降级方法");
 		return JsonResult.err("获取订单中的商品列表失败，请稍后重试");
 	}
 
