@@ -18,11 +18,11 @@ eureka:
 zuul:
   retryable: true
   
-ribbon:
-  ConnectTimeout: 1000
-  ReadTimeout: 3000
-  MaxAutoRetriesNextServer: 1
-  MaxAutoRetries: 1
+#ribbon:
+#  ConnectTimeout: 1000
+#  ReadTimeout: 3000
+#  MaxAutoRetriesNextServer: 1
+#  MaxAutoRetries: 1
   
 hystrix:
   command:
@@ -30,5 +30,12 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 3000
+            timeoutInMilliseconds: 500
+
+            
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
   
